@@ -1,0 +1,35 @@
+
+<br>
+<div class="container rounded border mb-3 shadow bg-white">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col m-3">
+            <div class="card" style="width: 18rem;" ng-cloak>
+                <div class="card-header" style="background-color: #1b0563;" >
+                    <a style="color: #ffffff;">Iniciar Sesión</a>
+                </div>
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend" >
+                            <div class="input-group-text"style="background-color: #1b0563;"><i class="bi bi-person-circle" style="color: #ffffff;"></i></div>
+                        </div>
+                        <input type="text" class="form-control" id="user" 
+                        placeholder="Nombre de usuario" [(ngModel)]="user">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend" >
+                            <div class="input-group-text"style="background-color: #1b0563;"><i class="bi bi-lock-fill" style="color: #ffffff;"></i></div>
+                        </div>
+                        <input type="password" class="form-control" id="password" 
+                        placeholder="Contraseña" [(ngModel)]="pass" >
+                    </div>
+                </div>
+                <div class="card-footer text-center" style="background-color: #1b0563;">
+                    <button type="button" class="btn btn-primary" id="entrar" (click)="login()" style="background-color: #6264fd;" ><i class="bi bi-box-arrow-in-right"  style="color: #ffffff;" ></i> Entrar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
