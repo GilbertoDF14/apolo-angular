@@ -45,4 +45,11 @@ export class ApoloService {
     console.log(this.cuenta.token);
     return this.http.get(URL + "cursos",{headers:headers});
   }
+
+  miscursos(){
+    let headers=new HttpHeaders;
+    headers=headers.append('Authorization',this.cuenta.token);
+    const us=this.cuenta.user;
+    return this.http.get(URL + "mycourses/"+us,{headers:headers});
+  }
 }

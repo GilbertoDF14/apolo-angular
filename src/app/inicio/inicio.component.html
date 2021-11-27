@@ -7,21 +7,24 @@
         <div class="col"></div>
     </div>
     <br>
-    <div class="row">
-        <div class="col"></div>
+    <div class="container">
         <div class="col">
             <table class="table table-hover" style="background-color: #1b0563;" >
                 <thead>
                     <tr>
                         <th><a style="color: rgb(255, 255, 255);">ID</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">ID CURSO</a></th>
                         <th><a style="color: rgb(255, 255, 255);">Curso</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Profesor</a></th>
                         <th><a style="color: rgb(255, 255, 255);">...</a><th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr >
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let curso of miscursos" style="color: rgb(255, 255, 255);">
+                        <td>{{curso.id}}</td>
+                        <td>{{curso.cursoid}}</td>
+                        <td>{{curso.nombre}}</td>
+                        <td>{{curso.profesor}}</td>
                         <td>
                             <button type="button" class="btn btn-info">
                             <i class="bi bi-pencil-square"></i>
@@ -34,6 +37,5 @@
                 </tbody>
             </table>
         </div>
-        <div class="col"></div>
     </div>
 </div>
