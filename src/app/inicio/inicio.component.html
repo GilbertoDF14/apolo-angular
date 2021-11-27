@@ -3,7 +3,29 @@
 <div class="container">
     <div class="row">
         <div class="col"></div>
-        <div class="col"></div>
+        <div class="col">
+            <div class="card" style="width: 18rem;" ng-cloak *ngIf="rol=='A'">
+                <div class="card-header" style="background-color: #1b0563;">
+                    <a style="color: #ffffff;">Agregar curso</a>
+                </div>
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="tema" 
+                        placeholder="Nombre del curso" [(ngModel)]="nombre">
+                    </div>
+                    <div class="input-group">
+                            <textarea class="form-control" aria-label="With textarea" id="desctema"
+                            placeholder="Descripción del curso"  [(ngModel)]="descripcion"></textarea>
+                            <div id="descHelpBlock" class="form-text">
+                                La descripción debe tener maximo 300 caracteres
+                            </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center" style="background-color: #1b0563;">
+                    <button type="button"  (click)="agregar()" class="btn btn-primary" id="entrar"  style="background-color: #6264fd;" >Agregar tema</button>
+                </div>
+            </div>
+        </div>
         <div class="col"></div>
     </div>
     <br>
@@ -16,6 +38,7 @@
                         <th><a style="color: rgb(255, 255, 255);">ID CURSO</a></th>
                         <th><a style="color: rgb(255, 255, 255);">Curso</a></th>
                         <th><a style="color: rgb(255, 255, 255);">Profesor</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Descripción</a></th>
                         <th><a style="color: rgb(255, 255, 255);">...</a><th>
                     </tr>
                 </thead>
@@ -25,6 +48,7 @@
                         <td>{{curso.cursoid}}</td>
                         <td>{{curso.nombre}}</td>
                         <td>{{curso.profesor}}</td>
+                        <td>{{curso.descripcion}}</td>
                         <td>
                             <button type="button" class="btn btn-info">
                             <i class="bi bi-pencil-square"></i>
