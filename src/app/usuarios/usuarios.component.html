@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+<br>
+<div class="container">
+    <div class="col">
+        <table class="table table-hover" style="background-color: #1b0563;" >
+            <thead>
+                <tr>
+                    <th><a style="color: rgb(255, 255, 255);">Username</a></th>
+                    <th><a style="color: rgb(255, 255, 255);">Nombre</a></th>
+                    <th><a style="color: rgb(255, 255, 255);">Apellidos</a></th>
+                    <th><a style="color: rgb(255, 255, 255);">Rol</a></th>
+                    <th><a style="color: rgb(255, 255, 255);">...</a><th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of usuarios" style="color: rgb(255, 255, 255);">
+                    <td>{{user.user}}</td>
+                    <td>{{user.nombre}}</td>
+                    <td>{{user.apellidos}}</td>
+                    <td>{{user.rol}}</td>
+                    <td>
+                        <button type="button" class="btn btn-info">
+                        <i class="bi bi-pencil-square"></i>
+                          </button>
+                          <button type="button" class="btn btn-danger" >
+                            <i class="bi bi-trash-fill"></i>
+                            </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

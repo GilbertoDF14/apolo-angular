@@ -13,11 +13,17 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { MenuComponent } from './menu/menu.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { AltuserComponent } from './altuser/altuser.component';
+import { TemasComponent } from './temas/temas.component';
 
 const rutas: Route[] = [
   {path:'', component: LoginComponent},
   {path:'login', component: LoginComponent},
-  {path:'inicio', component: InicioComponent}
+  {path:'inicio', component: InicioComponent},
+  {path:'cursos', component: TemasComponent},
+  {path:'users', component: UsuariosComponent},
+  {path:'altuser', component: AltuserComponent}
 ]
 
 @NgModule({
@@ -27,7 +33,10 @@ const rutas: Route[] = [
     HeaderComponent,
     FooterComponent,
     InicioComponent,
-    MenuComponent
+    MenuComponent,
+    UsuariosComponent,
+    AltuserComponent,
+    TemasComponent
   ],
   imports: [
     BrowserModule,

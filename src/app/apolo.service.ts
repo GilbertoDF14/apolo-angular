@@ -43,7 +43,22 @@ export class ApoloService {
     let headers=new HttpHeaders;
     headers=headers.append('Authorization',this.cuenta.token);
     console.log(this.cuenta.token);
-    return this.http.get(URL + "cursos",{headers:headers});
+    return this.http.get(URL + "curso",{headers:headers});
+  }
+
+  users(){
+    let headers=new HttpHeaders;
+    headers=headers.append('Authorization',this.cuenta.token);
+    console.log(this.cuenta.token);
+    return this.http.get(URL + "usuario",{headers:headers});
+  }
+
+  cursosPr(){
+    let headers=new HttpHeaders;
+    headers=headers.append('Authorization',this.cuenta.token);
+    console.log(this.cuenta.token);
+    const us=this.cuenta.user;
+    return this.http.get(URL + "cursos/"+us,{headers:headers});
   }
 
   idcurso(){
@@ -76,6 +91,6 @@ export class ApoloService {
     headers=headers.append('Authorization',this.cuenta.token);
     form.append('curso',curso);
     form.append('alumno',alumno);
-    return this.http.post(URL + "mycourse",form,{headers:headers});
+    return this.http.post(URL + "micurso",form,{headers:headers});
   }
 }

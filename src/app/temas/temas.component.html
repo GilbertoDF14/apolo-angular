@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+<br>
+<div class="container" >
+        <div class="col">
+            <table class="table table-hover" style="background-color: #1b0563;" >
+                <thead>
+                    <tr>
+                        <th><a style="color: rgb(255, 255, 255);">ID curso</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Nombre</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Profesor</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Descripción</a></th>
+                        <th><a style="color: rgb(255, 255, 255);" *ngIf="rol=='U'">Inscribirme</a><th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let curso of cursos" style="color: rgb(255, 255, 255);">
+                        <td>{{curso.id}}</td>
+                        <td>{{curso.nombre}}</td>
+                        <td>{{curso.profesor}}</td>
+                        <td>{{curso.descripcion}}</td>
+                        <td *ngIf="rol=='U'">
+                            <button type="button" class="btn btn-info" style="background-color: rgb(207, 245, 38);">
+                                <i class="bi bi-pen-fill" style="color: rgb(0, 0, 0);"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

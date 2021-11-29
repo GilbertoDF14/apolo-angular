@@ -29,7 +29,39 @@
         <div class="col"></div>
     </div>
     <br>
-    <div class="container">
+    <div class="container" *ngIf="rol=='A'">
+        <div class="col">
+            <table class="table table-hover" style="background-color: #1b0563;" >
+                <thead>
+                    <tr>
+                        <th><a style="color: rgb(255, 255, 255);">ID curso</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Nombre</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Profesor</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Descripción</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">...</a><th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let curso of cursos" style="color: rgb(255, 255, 255);">
+                        <td>{{curso.id}}</td>
+                        <td>{{curso.nombre}}</td>
+                        <td>{{curso.profesor}}</td>
+                        <td>{{curso.descripcion}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info">
+                            <i class="bi bi-pencil-square"></i>
+                              </button>
+                              <button type="button" class="btn btn-danger" >
+                                <i class="bi bi-trash-fill"></i>
+                                </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <div class="container" *ngIf="rol=='U'">
         <div class="col">
             <table class="table table-hover" style="background-color: #1b0563;" >
                 <thead>
@@ -50,12 +82,9 @@
                         <td>{{curso.profesor}}</td>
                         <td>{{curso.descripcion}}</td>
                         <td>
-                            <button type="button" class="btn btn-info">
-                            <i class="bi bi-pencil-square"></i>
-                              </button>
-                              <button type="button" class="btn btn-danger" >
-                              <i class="bi bi-trash-fill"></i>
-                              </button>
+                            <button type="button" class="btn btn-danger" >
+                                <i class="bi bi-trash-fill"></i>
+                                </button>
                         </td>
                     </tr>
                 </tbody>
