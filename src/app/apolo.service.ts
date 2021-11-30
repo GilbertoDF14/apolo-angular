@@ -9,6 +9,29 @@ const URL:string = "http://localhost/apolo/public/";
 export class ApoloService {
 
   private cuenta={user:'',nombre:'',apellidos:'',rol:'',token:''};
+  private curso={id:0,nombre:'',profesor:'',descripcion:''};
+
+  setCurso(id:any,nombre:string,profesor:string,descripcion:string){
+    this.curso.id=id;
+    let idtem=this.curso.id.toString();
+    this.curso.nombre=nombre;
+    this.curso.profesor=profesor;
+    this.curso.descripcion=descripcion;
+
+    localStorage.setItem('id',idtem);
+    localStorage.setItem('nombreC',nombre);
+    localStorage.setItem('profesor',profesor);
+    localStorage.setItem('descripcion',descripcion);
+  }
+
+  getCurso(){
+    let idtem = localStorage.getItem('id');
+    this.curso.id= parseInt(idtem);
+    this.curso.nombre = localStorage.getItem('nombreC');
+    this.curso.profesor = localStorage.getItem('profesor');
+    this.curso.descripcion = localStorage.getItem('descripcion');
+    return this.curso;
+  }
 
   setCuenta(user:string,nombre:string,apellidos:string,rol:string,token:string){
     this.cuenta.user=user;
@@ -85,7 +108,7 @@ export class ApoloService {
     return this.http.post(URL + "curso",form,{headers:headers});
   }
 
-  addMiCurso(curso:any,alumno:string){
+  addMiCurso(curso,alumno:string){
     let headers=new HttpHeaders;
     let form = new FormData;
     headers=headers.append('Authorization',this.cuenta.token);
@@ -93,4 +116,17 @@ export class ApoloService {
     form.append('alumno',alumno);
     return this.http.post(URL + "micurso",form,{headers:headers});
   }
+
+  delCurso(id:number){
+    let headers = new HttpHeaders;
+    headers = headers.append('Authorization', this.cuenta.token);
+    return this.http.delete(URL + "curso/"+id, {headers:headers});
+  }
+
+  delMiCurso(curso){
+    let headers = new HttpHeaders;
+    headers = headers.append('Authorization', this.cuenta.token);
+    return this.http.delete(URL + "mycourse/" + curso.id, {headers:headers});
+  }
+ 
 }

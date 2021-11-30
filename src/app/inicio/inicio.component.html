@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-center" style="background-color: #1b0563;">
-                    <button type="button"  (click)="agregar()" class="btn btn-primary" id="entrar"  style="background-color: #6264fd;" >Agregar tema</button>
+                    <button type="button"  (click)="agregar()" class="btn btn-primary" id="entrar"  style="background-color: #6264fd;" >Agregar Curso</button>
                 </div>
             </div>
         </div>
@@ -42,16 +42,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let curso of cursos" style="color: rgb(255, 255, 255);">
+                    <tr *ngFor="let curso of cursos" style="color: rgb(255, 255, 255);"  >
                         <td>{{curso.id}}</td>
                         <td>{{curso.nombre}}</td>
                         <td>{{curso.profesor}}</td>
                         <td>{{curso.descripcion}}</td>
                         <td>
-                            <button type="button" class="btn btn-info">
+                            <button type="button" class="btn btn-info" (click)="editarCurso(curso)" >
                             <i class="bi bi-pencil-square"></i>
                               </button>
-                              <button type="button" class="btn btn-danger" >
+                              <button type="button" class="btn btn-danger" (click)="deleteCurso(curso)">
                                 <i class="bi bi-trash-fill"></i>
                                 </button>
                         </td>
@@ -75,7 +75,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let curso of miscursos" style="color: rgb(255, 255, 255);">
+                    <tr *ngFor="let curso of miscursos" style="color: rgb(255, 255, 255);" routerLink="/cursos">
                         <td>{{curso.id}}</td>
                         <td>{{curso.cursoid}}</td>
                         <td>{{curso.nombre}}</td>
@@ -92,3 +92,39 @@
         </div>
     </div>
 </div>
+  <!-- Modal Eliminar MisCursos Al-->
+ <!-- <div class="modal fade" id="eliminaTemaAl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           Esta seguro que desea eliminar de yus cursos el curso {{cursoEdit.nombre}} con id {{cursoEdit.id}}?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarCursoAl()">Si</button>
+        </div>
+      </div>
+    </div>
+  </div>-->
+    <!-- Modal Eliminar Cursos pr-->
+  <!-- <div class="modal fade" id="eliminaTemaPr" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               Esta seguro que desea eliminar de tus cursos el curso {{cursoEdit.nombre}} con id {{cursoEdit.id}}?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarCursoPr()">Si</button>
+            </div>
+          </div>
+        </div>
+      </div>--> 

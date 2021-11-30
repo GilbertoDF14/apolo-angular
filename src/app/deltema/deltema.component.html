@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+<br>
+<div class="container">
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <h1>
+            Seguro que de seas eliminar el tema {{t}} con id {{id}}?
+        </h1>
+    </div>
+    <div class="col"></div>
+</div>
+<div class="row">
+    <div class="col">
+        <button type="button" class="btn btn-info" routerLink="/inicio" >
+        NO
+        </button>
+    </div>
+    <div class="col">
+        <button type="button" class="btn btn-danger" (click)="borrar()">
+            SI
+        </button>
+    </div>
+</div>
+</div>

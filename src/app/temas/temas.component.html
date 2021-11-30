@@ -19,7 +19,8 @@
                         <td>{{curso.profesor}}</td>
                         <td>{{curso.descripcion}}</td>
                         <td *ngIf="rol=='U'">
-                            <button type="button" class="btn btn-info" style="background-color: rgb(207, 245, 38);">
+                            <button type="button" class="btn btn-info" style="background-color: rgb(207, 245, 38);"
+                            (click)="tomartema(curso)">
                                 <i class="bi bi-pen-fill" style="color: rgb(0, 0, 0);"></i>
                             </button>
                         </td>

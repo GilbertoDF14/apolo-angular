@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
       console.log(resp);
       this.respuesta(resp);
       this.rt.navigate(['/inicio']);
-      this.msgbox.success("Bienvenido :) !!");
+      this.msgbox.success("Bienvenido "+this.user+" a Apolo :) !!");
     }, error => {
       console.log(error);
       this.msgbox.error("No se ha podido iniciar sesión")

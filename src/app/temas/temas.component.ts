@@ -10,12 +10,14 @@ import { ToastrService } from 'ngx-toastr';
 export class TemasComponent implements OnInit {
   cursos:any;
   rol='';
+  alumno='';
   constructor(private apolo:ApoloService, private msgbox:ToastrService) { }
 
   ngOnInit(): void {
     this.apolo.getCuenta();
     this.llenarTabla();
     this.rol = this.apolo.getCuenta().rol;
+    this.alumno = this.apolo.getCuenta().user;
   }
 
   llenarTabla(){
@@ -28,6 +30,23 @@ export class TemasComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  cursoEdit:any;
+  cu;
+  tomartema(curso){
+    this.cursoEdit = JSON.parse(JSON.stringify(curso));
+    this.cu=this.cursoEdit.id;
+    console.log(this.cursoEdit);
+    this.addMiCurso();
+  }
+
+  addMiCurso(){
+    this.apolo.addMiCurso(this.cu,this.alumno).subscribe(
+      datos => {
+        this.msgbox.success("Te has inscrito correctamente a "+this.cursoEdit.nombre);
+      }
+    );
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApoloService } from '../apolo.service';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-inicio',
@@ -13,8 +14,9 @@ export class InicioComponent implements OnInit {
   nombre='';
   descripcion='';
   profesor='';
+  cursoEdit:any;
 
-  constructor(private apolo:ApoloService, private msgbox:ToastrService) { }
+  constructor(private rt:Router,private apolo:ApoloService, private msgbox:ToastrService) { }
 
   ngOnInit(): void {
     this.apolo.getCuenta();
@@ -57,6 +59,44 @@ export class InicioComponent implements OnInit {
         this.llenarTablaPr();
       }
     );
+  }
+
+  eliminarCursoAl(){
+    this.apolo.delMiCurso(this.cursoEdit).subscribe(
+      datos => {
+        this.msgbox.success("Eliminado correctamente");
+        this.llenarTabla();
+      },
+      error => {
+        this.msgbox.error("Error al eliminar");
+        console.log(error);
+      }
+    );
+  }
+
+  eliminarCursoPr(){
+    this.apolo.delCurso(this.cursoEdit).subscribe(
+      datos => {
+        this.msgbox.success("Eliminado correctamente");
+        this.llenarTablaPr();
+      },
+      error => {
+        this.msgbox.error("Error al eliminar");
+        console.log(error);
+      }
+    );
+  }
+
+  editarCurso(curso){
+    this.cursoEdit = JSON.parse(JSON.stringify(curso));
+    this.apolo.setCurso(this.cursoEdit.id,this.cursoEdit.nombre,this.cursoEdit.profesor,this.cursoEdit.descripcion);
+    this.rt.navigate(['/editcursos']);
+  }
+
+  deleteCurso(curso){
+    this.cursoEdit = JSON.parse(JSON.stringify(curso));
+    this.apolo.setCurso(this.cursoEdit.id,this.cursoEdit.nombre,this.cursoEdit.profesor,this.cursoEdit.descripcion);
+    this.rt.navigate(['/delcursos']);
   }
 
   idc:any
