@@ -56,6 +56,7 @@ export class InicioComponent implements OnInit {
     this.profesor=this.apolo.getCuenta().user
     this.apolo.addCurso(this.profesor,this.nombre,this.descripcion).subscribe(
       datos => {
+        this.msgbox.success("Creado correctamente");
         this.llenarTablaPr();
       }
     );

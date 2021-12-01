@@ -76,6 +76,17 @@ export class ApoloService {
     return this.http.get(URL + "usuario",{headers:headers});
   }
 
+  editCurso(id,profesor,nombre,desc){
+    let headers = new HttpHeaders;
+    let param = new HttpParams;
+    param = param.append('profesor', profesor);
+    param = param.append('nombre', nombre);
+    param = param.append('descripcion', desc);
+    headers = headers.append('Authorization', this.cuenta.token);
+    console.log(this.cuenta.token);
+    return this.http.put(URL + "curso/" + id, {headers:headers, params: param});
+  }
+
   cursosPr(){
     let headers=new HttpHeaders;
     headers=headers.append('Authorization',this.cuenta.token);
@@ -106,6 +117,18 @@ export class ApoloService {
     form.append('nombre',nombre);
     form.append('descripcion',descripcion);
     return this.http.post(URL + "curso",form,{headers:headers});
+  }
+
+  addUser(user:string,password:string,nombre:string,apellidos:string,rol:string){
+    let headers=new HttpHeaders;
+    let form = new FormData;
+    headers=headers.append('Authorization',this.cuenta.token);
+    form.append('user',user);
+    form.append('pass',password);
+    form.append('nombre',nombre);
+    form.append('apellidos',apellidos);
+    form.append('rol',rol);
+    return this.http.post(URL + "usuario",form,{headers:headers});
   }
 
   addMiCurso(curso,alumno:string){

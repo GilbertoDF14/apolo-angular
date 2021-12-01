@@ -1,2 +1,45 @@
 <app-menu></app-menu>
 <br>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card" style="width: 18rem;" ng-cloak>
+                <div class="card-header" style="background-color: #1b0563;" >
+                    <a style="color: #ffffff;">Editar Curso</a>
+                </div>
+                <div class="card-body">
+                    {{id}}
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="tema" 
+                        placeholder="Nombre del curso" [(ngModel)]="t">
+                    </div>
+                    <div class="input-group">
+                            <textarea class="form-control" aria-label="With textarea" id="desctema"
+                            placeholder="Descripción del curso"  [(ngModel)]="d"></textarea>
+                            <div id="descHelpBlock" class="form-text">
+                                La descripción debe tener maximo 300 caracteres
+                            </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center" style="background-color: #1b0563;">
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-danger" routerLink="/inicio" >
+                                Regresar
+                            </button>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col">
+                            <button type="button" class="btn btn-info" (click)="guardaCambios()">
+                                Guardar Cambios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<br>
