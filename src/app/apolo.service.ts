@@ -10,6 +10,7 @@ export class ApoloService {
 
   private cuenta={user:'',nombre:'',apellidos:'',rol:'',token:''};
   private curso={id:0,nombre:'',profesor:'',descripcion:''};
+  private micurso={id:0,cursoid:0,nombre:'',profesor:'',descripcion:''};
 
   setCurso(id:any,nombre:string,profesor:string,descripcion:string){
     this.curso.id=id;
@@ -22,6 +23,33 @@ export class ApoloService {
     localStorage.setItem('nombreC',nombre);
     localStorage.setItem('profesor',profesor);
     localStorage.setItem('descripcion',descripcion);
+  }
+
+  setmiCurso(id:any,cursoid:any,nombre:string,profesor:string,descripcion:string){
+    this.micurso.id=id;
+    this.micurso.cursoid=cursoid;
+    let idmc=this.micurso.id.toString();
+    let idc=this.micurso.cursoid.toString();
+    this.micurso.nombre=nombre;
+    this.micurso.profesor=profesor;
+    this.micurso.descripcion=descripcion;
+
+    localStorage.setItem('mcid',idmc);
+    localStorage.setItem('mcidc',idc);
+    localStorage.setItem('micurso',nombre);
+    localStorage.setItem('mcprofesor',profesor);
+    localStorage.setItem('mcdescripcion',descripcion);
+  }
+
+  getMiCurso(){
+    let idmc = localStorage.getItem('mcid');
+    let idc = localStorage.getItem('mcidc');
+    this.micurso.id= parseInt(idmc);
+    this.micurso.cursoid= parseInt(idc);
+    this.micurso.nombre = localStorage.getItem('micurso');
+    this.micurso.profesor = localStorage.getItem('mcprofesor');
+    this.micurso.descripcion = localStorage.getItem('mcdescripcion');
+    return this.micurso;
   }
 
   getCurso(){
@@ -146,10 +174,10 @@ export class ApoloService {
     return this.http.delete(URL + "curso/"+id, {headers:headers});
   }
 
-  delMiCurso(curso){
+  delMiCurso(id:number){
     let headers = new HttpHeaders;
     headers = headers.append('Authorization', this.cuenta.token);
-    return this.http.delete(URL + "mycourse/" + curso.id, {headers:headers});
+    return this.http.delete(URL + "mycourse/" + id, {headers:headers});
   }
  
 }

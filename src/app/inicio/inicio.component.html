@@ -75,14 +75,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let curso of miscursos" style="color: rgb(255, 255, 255);" routerLink="/cursos">
-                        <td>{{curso.id}}</td>
-                        <td>{{curso.cursoid}}</td>
-                        <td>{{curso.nombre}}</td>
-                        <td>{{curso.profesor}}</td>
-                        <td>{{curso.descripcion}}</td>
+                    <tr *ngFor="let curso of miscursos" style="color: rgb(255, 255, 255);">
+                        <td routerLink="/cursos">{{curso.id}}</td>
+                        <td routerLink="/cursos">{{curso.cursoid}}</td>
+                        <td routerLink="/cursos">{{curso.nombre}}</td>
+                        <td routerLink="/cursos">{{curso.profesor}}</td>
+                        <td routerLink="/cursos">{{curso.descripcion}}</td>
                         <td>
-                            <button type="button" class="btn btn-danger" >
+                            <button type="button" class="btn btn-danger" (click)="deleteMiCurso(curso)">
                                 <i class="bi bi-trash-fill"></i>
                                 </button>
                         </td>

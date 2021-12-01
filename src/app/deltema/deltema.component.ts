@@ -15,13 +15,28 @@ export class DeltemaComponent implements OnInit {
   t;
   p;
   d;
+
+  mcid;
+  mcidc;
+  mct;
+  mcp;
+  mcd;
+
+  rol='';
   constructor(private rt:Router,private apolo:ApoloService, private msgbox:ToastrService) { }
 
   ngOnInit(): void {
+    this.rol=this.apolo.getCuenta().rol;
     this.id=this.apolo.getCurso().id;
     this.t=this.apolo.getCurso().nombre;
     this.p=this.apolo.getCurso().profesor;
     this.d=this.apolo.getCurso().descripcion;
+
+    this.mcid=this.apolo.getMiCurso().id;
+    this.mcidc=this.apolo.getMiCurso().cursoid;
+    this.mct=this.apolo.getMiCurso().nombre;
+    this.mcp=this.apolo.getMiCurso().profesor;
+    this.mcd=this.apolo.getMiCurso().descripcion;
   }
 
   borrar(){
@@ -37,4 +52,19 @@ export class DeltemaComponent implements OnInit {
       }
     );
   }
+
+  borrarMc(){
+    console.log(this.mcid);
+    this.apolo.delMiCurso(this.mcid).subscribe(
+      datos => {
+        this.msgbox.success("Eliminado correctamente");
+        this.rt.navigate(['/inicio']);
+      },
+      error => {
+        this.msgbox.error("Error al eliminar");
+        console.log(error);
+      }
+    );
+  }
+
 }

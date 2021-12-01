@@ -15,6 +15,7 @@ export class InicioComponent implements OnInit {
   descripcion='';
   profesor='';
   cursoEdit:any;
+  micursoEdit:any;
 
   constructor(private rt:Router,private apolo:ApoloService, private msgbox:ToastrService) { }
 
@@ -97,6 +98,12 @@ export class InicioComponent implements OnInit {
   deleteCurso(curso){
     this.cursoEdit = JSON.parse(JSON.stringify(curso));
     this.apolo.setCurso(this.cursoEdit.id,this.cursoEdit.nombre,this.cursoEdit.profesor,this.cursoEdit.descripcion);
+    this.rt.navigate(['/delcursos']);
+  }
+
+  deleteMiCurso(curso){
+    this.micursoEdit = JSON.parse(JSON.stringify(curso));
+    this.apolo.setmiCurso(this.micursoEdit.id,this.micursoEdit.cursoid,this.micursoEdit.nombre,this.micursoEdit.profesor,this.micursoEdit.descripcion);
     this.rt.navigate(['/delcursos']);
   }
 

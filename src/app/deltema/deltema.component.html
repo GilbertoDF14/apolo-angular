@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <br>
 <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="rol=='A'">
         <div class="col"></div>
         <div class="col">
             <div class="card" style="width: 18rem;" ng-cloak>
@@ -9,7 +9,7 @@
                     <a style="color: #ffffff;">Eliminar Curso</a>
                 </div>
                 <div class="card-body">
-                    Seguro que de seas eliminar el tema {{t}} con id {{id}}?
+                    Seguro que deseas eliminar el curso {{t}} con id {{id}}?
                 </div>
                 <div class="card-footer text-center" style="background-color: #1b0563;">
                     <div class="row">
@@ -21,6 +21,35 @@
                         <div class="col"></div>
                         <div class="col">
                             <button type="button" class="btn btn-danger" (click)="borrar()">
+                                SI
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row" *ngIf="rol=='U'">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card" style="width: 18rem;" ng-cloak>
+                <div class="card-header" style="background-color: #1b0563;" >
+                    <a style="color: #ffffff;">Eliminar Curso</a>
+                </div>
+                <div class="card-body">
+                    Seguro que deseas eliminar de tus cursos el curso {{mct}} con id {{mcidc}}?
+                </div>
+                <div class="card-footer text-center" style="background-color: #1b0563;">
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-info" routerLink="/inicio" >
+                                NO
+                            </button>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col">
+                            <button type="button" class="btn btn-danger" (click)="borrarMc()">
                                 SI
                             </button>
                         </div>
