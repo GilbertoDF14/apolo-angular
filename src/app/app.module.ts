@@ -18,6 +18,12 @@ import { AltuserComponent } from './altuser/altuser.component';
 import { TemasComponent } from './temas/temas.component';
 import { EditartemaComponent } from './editartema/editartema.component';
 import { DeltemaComponent } from './deltema/deltema.component';
+import { DeluserComponent } from './deluser/deluser.component';
+import { EditaruserComponent } from './editaruser/editaruser.component';
+import { TemascursoComponent } from './temascurso/temascurso.component';
+import { VertemaComponent } from './vertema/vertema.component';
+import { EliminatemacComponent } from './eliminatemac/eliminatemac.component';
+import { ModificatemacComponent } from './modificatemac/modificatemac.component';
 
 const rutas: Route[] = [
   {path:'', component: LoginComponent},
@@ -27,6 +33,12 @@ const rutas: Route[] = [
   {path:'users', component: UsuariosComponent},
   {path:'editcursos', component: EditartemaComponent},
   {path:'delcursos', component: DeltemaComponent},
+  {path:'deluser', component: DeluserComponent},
+  {path:'edituser', component: EditaruserComponent},
+  {path:'temascurso', component: TemascursoComponent},
+  {path:'vertema', component: VertemaComponent},
+  {path:'deltema', component: EliminatemacComponent},
+  {path:'modtema', component: ModificatemacComponent},
   {path:'altuser', component: AltuserComponent}
 ]
 
@@ -42,7 +54,13 @@ const rutas: Route[] = [
     AltuserComponent,
     TemasComponent,
     EditartemaComponent,
-    DeltemaComponent
+    DeltemaComponent,
+    DeluserComponent,
+    EditaruserComponent,
+    TemascursoComponent,
+    VertemaComponent,
+    EliminatemacComponent,
+    ModificatemacComponent
   ],
   imports: [
     BrowserModule,

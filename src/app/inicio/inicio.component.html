@@ -43,10 +43,10 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let curso of cursos" style="color: rgb(255, 255, 255);"  >
-                        <td>{{curso.id}}</td>
-                        <td>{{curso.nombre}}</td>
-                        <td>{{curso.profesor}}</td>
-                        <td>{{curso.descripcion}}</td>
+                        <td (click)="listatemas(curso)">{{curso.id}}</td>
+                        <td (click)="listatemas(curso)">{{curso.nombre}}</td>
+                        <td (click)="listatemas(curso)">{{curso.profesor}}</td>
+                        <td (click)="listatemas(curso)">{{curso.descripcion}}</td>
                         <td>
                             <button type="button" class="btn btn-info" (click)="editarCurso(curso)" >
                             <i class="bi bi-pencil-square"></i>
@@ -76,11 +76,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let curso of miscursos" style="color: rgb(255, 255, 255);">
-                        <td routerLink="/cursos">{{curso.id}}</td>
-                        <td routerLink="/cursos">{{curso.cursoid}}</td>
-                        <td routerLink="/cursos">{{curso.nombre}}</td>
-                        <td routerLink="/cursos">{{curso.profesor}}</td>
-                        <td routerLink="/cursos">{{curso.descripcion}}</td>
+                        <td (click)="listatemas(curso)">{{curso.id}}</td>
+                        <td (click)="listatemas(curso)">{{curso.cursoid}}</td>
+                        <td (click)="listatemas(curso)">{{curso.nombre}}</td>
+                        <td (click)="listatemas(curso)">{{curso.profesor}}</td>
+                        <td (click)="listatemas(curso)">{{curso.descripcion}}</td>
                         <td>
                             <button type="button" class="btn btn-danger" (click)="deleteMiCurso(curso)">
                                 <i class="bi bi-trash-fill"></i>
@@ -92,39 +92,3 @@
         </div>
     </div>
 </div>
-  <!-- Modal Eliminar MisCursos Al-->
- <!-- <div class="modal fade" id="eliminaTemaAl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-           Esta seguro que desea eliminar de yus cursos el curso {{cursoEdit.nombre}} con id {{cursoEdit.id}}?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarCursoAl()">Si</button>
-        </div>
-      </div>
-    </div>
-  </div>-->
-    <!-- Modal Eliminar Cursos pr-->
-  <!-- <div class="modal fade" id="eliminaTemaPr" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-               Esta seguro que desea eliminar de tus cursos el curso {{cursoEdit.nombre}} con id {{cursoEdit.id}}?
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarCursoPr()">Si</button>
-            </div>
-          </div>
-        </div>
-      </div>--> 

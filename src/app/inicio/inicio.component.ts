@@ -59,6 +59,8 @@ export class InicioComponent implements OnInit {
       datos => {
         this.msgbox.success("Creado correctamente");
         this.llenarTablaPr();
+        this.nombre='';
+        this.descripcion='';
       }
     );
   }
@@ -89,10 +91,33 @@ export class InicioComponent implements OnInit {
     );
   }
 
-  editarCurso(curso){
+  llenar(curso){
     this.cursoEdit = JSON.parse(JSON.stringify(curso));
     this.apolo.setCurso(this.cursoEdit.id,this.cursoEdit.nombre,this.cursoEdit.profesor,this.cursoEdit.descripcion);
+  }
+
+  editarCurso(curso){
+    this.llenar(curso);
     this.rt.navigate(['/editcursos']);
+  }
+
+  listatemas(curso){
+    this.llenar(curso);
+    this.rt.navigate(['/temascurso']);
+  }
+
+  guardaCambios(){
+    this.apolo.editCurso(this.cursoEdit).subscribe(
+      datos => {
+        console.log(datos);
+        this.msgbox.success("Modificacion correcta");
+        this.rt.navigate(['/inicio']);
+      },
+      error => {
+        this.msgbox.error("Error al modificar");
+        console.log(error);
+      }
+    );
   }
 
   deleteCurso(curso){

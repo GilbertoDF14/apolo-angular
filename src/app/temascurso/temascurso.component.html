@@ -1,0 +1,108 @@
+<app-menu></app-menu>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <h1>
+                {{id}} : {{t}}
+            </h1><br>
+            <h3>
+                {{p}}
+            </h3><br>
+            <h6>
+                {{d}}
+            </h6><br>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card" style="width: 18rem;" ng-cloak *ngIf="rol=='A'">
+                <div class="card-header" style="background-color: #1b0563;">
+                    <a style="color: #ffffff;">Agregar tema al curso</a>
+                </div>
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="tema" 
+                        placeholder="Nombre del tema" [(ngModel)]="ntema" >
+                    </div>
+                </div>
+                <div class="card-footer text-center" style="background-color: #1b0563;">
+                    <button type="button" (click)="agregar()" class="btn btn-primary" id="entrar"  style="background-color: #6264fd;" >Agregar tema</button>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <br>
+    <div class="container" >
+        <div class="col">
+            <table class="table table-hover" style="background-color: #1b0563;" >
+                <thead>
+                    <tr>
+                        <th><a style="color: rgb(255, 255, 255);">ID Tema</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Nombre</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">...</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let tema of temas" style="color: rgb(255, 255, 255);"  >
+                        <td > {{tema.id}} </td>
+                        <td > {{tema.nombre}}</td>
+                        <td>
+                            <button type="button" class="btn btn-info">
+                            <i class="bi bi-pencil-square"></i>
+                              </button>
+                              <button type="button" class="btn btn-danger"  (click)="delTema(tema)">
+                                <i class="bi bi-trash-fill"></i>
+                                </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br>
+    <div class="container" *ngIf="rol=='A'">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <h1>
+                    Lista de alumnos
+                </h1><br>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+    <div class="container" *ngIf="rol=='A'">
+        <div class="col">
+            <table class="table table-hover" style="background-color: #1b0563;" >
+                <thead>
+                    <tr>
+                        <th><a style="color: rgb(255, 255, 255);">User</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Nombre</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">Apellidos</a></th>
+                        <th><a style="color: rgb(255, 255, 255);">...</a><th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let alumno of alumnos" style="color: rgb(255, 255, 255);">
+                        <td > {{alumno.alumno}} </td>
+                        <td > {{alumno.nombre}} </td>
+                        <td > {{alumno.apellidos}}</td>
+                        <td>
+                            <button type="button" class="btn btn-danger" >
+                                <i class="bi bi-trash-fill"></i>
+                                </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

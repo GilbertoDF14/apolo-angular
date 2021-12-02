@@ -19,10 +19,10 @@
                     <td>{{user.apellidos}}</td>
                     <td>{{user.rol}}</td>
                     <td>
-                        <button type="button" class="btn btn-info">
+                        <button type="button" class="btn btn-info" (click)="editUser(user)">
                         <i class="bi bi-pencil-square"></i>
                           </button>
-                          <button type="button" class="btn btn-danger" >
+                          <button type="button" class="btn btn-danger" (click)="delUser(user)">
                             <i class="bi bi-trash-fill"></i>
                             </button>
                     </td>

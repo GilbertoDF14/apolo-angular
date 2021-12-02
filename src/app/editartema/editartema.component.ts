@@ -9,11 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./editartema.component.css']
 })
 export class EditartemaComponent implements OnInit {
-  tema:any;
-  id;
-  t;
-  p;
-  d;
+  //tema:any;
+  id:number;
+  t:string;
+  p:string;
+  d:string;
+
+  private curso={id:0,nombre:'',profesor:'',descripcion:''};
+
+
   constructor(private rt:Router,private apolo:ApoloService, private msgbox:ToastrService) { }
 
   ngOnInit(): void {
@@ -24,8 +28,14 @@ export class EditartemaComponent implements OnInit {
   }
 
   guardaCambios(){
-    this.apolo.editCurso(this.id,this.p,this.t,this.d).subscribe(
+    this.p=this.apolo.getCuenta().user;
+    this.curso.id=this.id;
+    this.curso.profesor=this.p;
+    this.curso.nombre=this.t;
+    this.curso.descripcion=this.d;
+    this.apolo.editCurso(this.curso).subscribe(
       datos => {
+        console.log(datos);
         this.msgbox.success("Modificacion correcta");
         this.rt.navigate(['/inicio']);
       },
