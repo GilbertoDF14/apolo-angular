@@ -24,6 +24,7 @@ import { TemascursoComponent } from './temascurso/temascurso.component';
 import { VertemaComponent } from './vertema/vertema.component';
 import { EliminatemacComponent } from './eliminatemac/eliminatemac.component';
 import { ModificatemacComponent } from './modificatemac/modificatemac.component';
+import { MiperfilComponent } from './miperfil/miperfil.component';
 
 const rutas: Route[] = [
   {path:'', component: LoginComponent},
@@ -39,6 +40,7 @@ const rutas: Route[] = [
   {path:'vertema', component: VertemaComponent},
   {path:'deltema', component: EliminatemacComponent},
   {path:'modtema', component: ModificatemacComponent},
+  {path:'myprofile', component: MiperfilComponent},
   {path:'altuser', component: AltuserComponent}
 ]
 
@@ -60,7 +62,8 @@ const rutas: Route[] = [
     TemascursoComponent,
     VertemaComponent,
     EliminatemacComponent,
-    ModificatemacComponent
+    ModificatemacComponent,
+    MiperfilComponent
   ],
   imports: [
     BrowserModule,
