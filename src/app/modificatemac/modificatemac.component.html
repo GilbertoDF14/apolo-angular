@@ -1,1 +1,39 @@
-<p>modificatemac works!</p>
+<app-menu></app-menu>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card" style="width: 18rem;" ng-cloak>
+                <div class="card-header" style="background-color: #1b0563;" >
+                    <a style="color: #ffffff;">Editar Tema de Curso</a>
+                </div>
+                <div class="card-body">
+                    {{id}}
+                    <br>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="tema" 
+                        placeholder="Nombre del curso" [(ngModel)]="nombre">
+                    </div>
+                </div>
+                <div class="card-footer text-center" style="background-color: #1b0563;">
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-danger" routerLink="/temascurso" >
+                                Regresar
+                            </button>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col">
+                            <button type="button" class="btn btn-info" (click)="guardarCambios()">
+                                Guardar Cambios
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+<br>

@@ -54,7 +54,7 @@
                         <td > {{tema.id}} </td>
                         <td > {{tema.nombre}}</td>
                         <td>
-                            <button type="button" class="btn btn-info">
+                            <button type="button" class="btn btn-info" (click)="editTema(tema)">
                             <i class="bi bi-pencil-square"></i>
                               </button>
                               <button type="button" class="btn btn-danger"  (click)="delTema(tema)">
@@ -86,7 +86,6 @@
                         <th><a style="color: rgb(255, 255, 255);">User</a></th>
                         <th><a style="color: rgb(255, 255, 255);">Nombre</a></th>
                         <th><a style="color: rgb(255, 255, 255);">Apellidos</a></th>
-                        <th><a style="color: rgb(255, 255, 255);">...</a><th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,11 +93,6 @@
                         <td > {{alumno.alumno}} </td>
                         <td > {{alumno.nombre}} </td>
                         <td > {{alumno.apellidos}}</td>
-                        <td>
-                            <button type="button" class="btn btn-danger" >
-                                <i class="bi bi-trash-fill"></i>
-                                </button>
-                        </td>
                     </tr>
                 </tbody>
             </table>

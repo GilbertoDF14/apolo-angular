@@ -67,6 +67,8 @@ export class TemascursoComponent implements OnInit {
 
   editTema(tema){
     this.temaEdit = JSON.parse(JSON.stringify(tema));
+    this.apolo.setTema(this.temaEdit.id,this.temaEdit.nombre);
+    this.rt.navigate(['/modtema']);    
   }
 
   llenar(tema){

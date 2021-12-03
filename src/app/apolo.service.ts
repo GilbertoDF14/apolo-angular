@@ -165,6 +165,15 @@ export class ApoloService {
     return this.http.delete(URL + "tema/" + id, {headers:headers});
   }
 
+  modTema(id:number,nombre:string){
+    let headers = new HttpHeaders;
+    let params = new HttpParams;
+    params = params.append('nombre', nombre);
+    console.log(URL+"tema/"+id+"?"+params);
+    headers = headers.append('Authorization', this.cuenta.token);
+    return this.http.put(URL + "tema/" + id, {headers:headers,params: params});
+  }
+
   users(){
     let headers=new HttpHeaders;
     headers=headers.append('Authorization',this.cuenta.token);
