@@ -26,9 +26,11 @@ export class TemascursoComponent implements OnInit {
     this.t=this.apolo.getCurso().nombre;
     this.p=this.apolo.getCurso().profesor;
     this.d=this.apolo.getCurso().descripcion;
+    this.idcurso=this.apolo.getMiCurso().cursoid;
 
     this.llenarlista();
     this.llenartemas();
+    this.llenartemasal();
   }
 
   llenartemas(){
@@ -36,6 +38,19 @@ export class TemascursoComponent implements OnInit {
       datos=>{
         console.log(datos);
         this.temas = datos;
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+  }
+ temasal;
+ idcurso;
+  llenartemasal(){
+    this.apolo.temas(this.idcurso).subscribe(
+      datos=>{
+        console.log(datos);
+        this.temasal = datos;
       },
       error=>{
         console.log(error);

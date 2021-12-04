@@ -106,6 +106,16 @@ export class InicioComponent implements OnInit {
     this.rt.navigate(['/temascurso']);
   }
 
+  micursotEdit:any;
+  listamitemas(curso){
+    this.micursotEdit = JSON.parse(JSON.stringify(curso));
+    this.apolo.setmiCurso(this.micursotEdit.id,this.micursotEdit.cursoid,this.micursotEdit.nombre,this.micursotEdit.profesor,this.micursotEdit.descripcion);
+    this.rt.navigate(['/temascurso']);
+    //this.micursoEdit = JSON.parse(JSON.stringify(curso));
+    //this.apolo.setmiCurso(this.micursoEdit.id,this.micursoEdit.cursoid,this.micursoEdit.nombre,this.micursoEdit.profesor,this.micursoEdit.descripcion);
+    //this.rt.navigate(['/delcursos']);
+  }
+
   guardaCambios(){
     this.apolo.editCurso(this.cursoEdit).subscribe(
       datos => {

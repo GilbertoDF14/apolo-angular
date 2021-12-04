@@ -21,4 +21,17 @@ export class MiperfilComponent implements OnInit {
     this.ape=this.apolo.getCuenta().apellidos;
   }
 
+  eliminarUs(){
+    this.apolo.delUser(this.user).subscribe(
+      datos => {
+        this.msgbox.success("Tu perfil se ha eliminado correctamente");
+        this.rt.navigate(['/login']);
+      },
+      error => {
+        this.msgbox.error("Error al eliminar");
+        console.log(error);
+      }
+    );
+  }
+
 }

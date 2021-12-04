@@ -3,20 +3,58 @@
 <div class="container">
 <div class="row">
     <div class="col">
-        <h1>Mi información</h1>
+        <h1 style="color: #1b0563;">Mi información</h1>
         <br>
-        <h3>
-            Username: {{user}}
-        </h3>
-        <br>
-        <h3>
-            Nombre: {{nombre}}
-        </h3>
-        <br>
-        <h3>
-            Apellidos: {{ape}}
-        </h3>
     </div>
     <div class="col"></div>
 </div>
+<br>
+<div class="row">
+    <div class="col">
+        <div class="input-group">
+            <span class="input-group-text">Username:</span>
+            <input type="text" aria-label="First name" class="form-control" [(ngModel)]="user" disabled readonly>
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-text">Nombre:</span>
+            <input type="text" aria-label="First name" class="form-control" [(ngModel)]="nombre" disabled readonly>
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-text">Apellidos:</span>
+            <input type="text" aria-label="First name" class="form-control" [(ngModel)]="ape" disabled readonly>
+        </div><br>
+        <div class="row">
+            <div class="col align-middle">
+                <button type="button " class="btn btn-info" routerLink="/edituser">
+                    <i class="bi bi-pencil-square"></i> Editar mi info
+                </button>
+            </div>
+            <div class="col">        
+                <button type="button" class="btn btn-danger" 
+                data-bs-toggle="modal" data-bs-target="#eliminaTema">
+                    <i class="bi bi-trash-fill"></i> Borrar perfil
+                </button>
+            </div>
+ 
+        </div>
+    </div>
+</div>
 </div><br>
+  <!-- Modal Eliminar Tema -->
+  <div class="modal fade" id="eliminaTema" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           Esta seguro que desea eliminar tu perfil {{user}}?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="eliminarUs()">Si</button>
+        </div>
+      </div>
+    </div>
+  </div>

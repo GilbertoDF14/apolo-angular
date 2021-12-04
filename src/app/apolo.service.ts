@@ -13,6 +13,7 @@ export class ApoloService {
   private curso={id:0,nombre:'',profesor:'',descripcion:''};
   private tema={id:0,nombre:''};
   private micurso={id:0,cursoid:0,nombre:'',profesor:'',descripcion:''};
+  private psw;
 
   setCurso(id:any,nombre:string,profesor:string,descripcion:string){
     this.curso.id=id;
@@ -72,6 +73,10 @@ export class ApoloService {
     return this.micurso;
   }
 
+  getPass(){
+    return this.psw;
+  }
+
   getCurso(){
     let idtem = localStorage.getItem('id');
     this.curso.id= parseInt(idtem);
@@ -126,6 +131,7 @@ export class ApoloService {
   constructor(private http: HttpClient) { }
 
   login(user:string, pass:string){
+    this.psw=pass;
     return this.http.get(URL + "login/" + user + "/" + pass)
   }
 
@@ -194,6 +200,19 @@ export class ApoloService {
     //console.log(param);
     //console.log(URL+"curso/"+id+"/"+param);
     return this.http.put(URL + "curso/" + curso.id, {headers:headers, params: param});
+  }
+
+  editUser(user,pass,nombre,apellidos,rol){
+    let headers = new HttpHeaders;
+    let param = new HttpParams;
+    //param = param.append('user', user);
+    param = param.append('pass', pass);
+    param = param.append('nombre', nombre);
+    param = param.append('apellidos', apellidos);
+    param = param.append('rol', rol);
+    console.log(user+"+"+pass+"+"+nombre+"+"+apellidos+"+"+rol)
+    headers = headers.append('Authorization', this.cuenta.token);
+    return this.http.put(URL + "usuario/" + user, {headers:headers, params: param});
   }
 
   cursosPr(){

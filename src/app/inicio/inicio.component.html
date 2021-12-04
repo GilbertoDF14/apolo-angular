@@ -63,6 +63,7 @@
     <br>
     <div class="container" *ngIf="rol=='U'">
         <div class="col">
+            <h1 style="color: #1b0563;">Mis cursos</h1>
             <table class="table table-hover" style="background-color: #1b0563;" >
                 <thead>
                     <tr>
@@ -76,11 +77,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let curso of miscursos" style="color: rgb(255, 255, 255);">
-                        <td (click)="listatemas(curso)">{{curso.id}}</td>
-                        <td (click)="listatemas(curso)">{{curso.cursoid}}</td>
-                        <td (click)="listatemas(curso)">{{curso.nombre}}</td>
-                        <td (click)="listatemas(curso)">{{curso.profesor}}</td>
-                        <td (click)="listatemas(curso)">{{curso.descripcion}}</td>
+                        <td (click)="listamitemas(curso)">{{curso.id}}</td>
+                        <td (click)="listamitemas(curso)">{{curso.cursoid}}</td>
+                        <td (click)="listamitemas(curso)">{{curso.nombre}}</td>
+                        <td (click)="listamitemas(curso)">{{curso.profesor}}</td>
+                        <td (click)="listamitemas(curso)">{{curso.descripcion}}</td>
                         <td>
                             <button type="button" class="btn btn-danger" (click)="deleteMiCurso(curso)">
                                 <i class="bi bi-trash-fill"></i>
